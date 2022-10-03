@@ -1,0 +1,30 @@
+#include <bits/stdc++.h> 
+#define pb push_back 
+#define mk make_pair 
+using namespace std; 
+int main() 
+{
+    int n = 0, q = 0;
+	cin>>n>>q;
+	vector<pair<int, int>> v;
+    for(int i=0;i<n;i++)
+	{
+        int a = 0;
+        cin>>a;
+        v.pb(mk(a, i+1));
+    }
+    sort(v.begin(), v.end());
+    while(q--)
+	{
+	    int l = 0, r = 0;
+        cin>>l>>r;
+        for(int i=n - 1;~i;i--)
+		{
+            if(v[i].second < l || v[i].second > r)
+			{
+                cout<<v[i].first<<endl;
+                break;
+            }
+	    }
+    }
+}
